@@ -27,8 +27,4 @@ export PS1="\[\033[1;32m\]\u:\[\033[1;34m\] \W\[\033[1;34m\] \$\[\033[0m\]"
 # add $HOME/bin to PATH
 export PATH="${PATH}:$HOME/bin"
 
-# adding wine to PATH
-export PATH="/Applications/Wine Stable.app/Contents/Resources/wine/bin:$PATH"
-export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
-export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib:/opt/X11/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
