@@ -1,5 +1,6 @@
 " stop cursor from changing in neovim
-set guicursor=
+set guicursor=n-i-v-c:block-Cursor
+set guicursor+=n-i-v-c:blinkon0
 
 "================== PLUGINS SECTION BEGIN======================
 " https://github.com/junegunn/vim-plug/wiki/tutorial
