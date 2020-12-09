@@ -1,16 +1,10 @@
-
 # set vi mode for bash
 set -o vi
-
-# add MySQL to PATH
-export PATH="${PATH}:/usr/local/mysql/bin"
 
 # use mvim as a default text editor, assuming you already have mvim installed
 alias vim="echo 'Did you mean to type nvim?'"
 alias vi="echo 'Did you mean to type nvim?'"
 
-# For doing things easily with my working directory
-export loc='/Users/mehransiddiqui/Documents/working_directory'
 
 # start tmux with 256 colours
 alias tmux="tmux -2"

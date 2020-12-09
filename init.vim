@@ -160,14 +160,18 @@ nnoremap <leader>_ :resize -5<CR>
 " mappings for hiding splits
 nnoremap <c-p> :hide<CR>
 
-
-"tnoremap <c-v> <c-w>"*
-
-map <leader>t <plug>NERDCommenterToggle
+" quit all open buffers
 nnoremap <leader>z :qa!<CR>
 
-" remove nerdCommenter mapping
-noremap <leader>ca <Nop>
+" turn of NERDCommenter's default mappings
+let g:NERDCreateDefaultMappings = 0
+
+" set nerdcommenter key
+map <leader>t <plug>NERDCommenterToggle
+
+" remove nerdCommenter mapping - use this when NERDCommenter's default mappings are enabled and you want to remap <leader>ca to something else
+"noremap <leader>ca <Nop>
+
 " copy whole file
 nnoremap <leader>ca gg<S-V><S-G>"*y<Esc>
 
@@ -184,6 +188,9 @@ inoremap [<CR> [<CR>]<Esc>ko
 
 " when vim starts go into insert mode
 autocmd VimEnter * execute "normal! \i"
+
+" when vim starts source vimrc so that <leader>ca works
+
 
 
 "==========compile and run======================
