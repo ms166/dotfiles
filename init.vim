@@ -56,10 +56,10 @@ let g:neomake_cpp_gpp_maker = {
             \ 'args' : ['-O2', '-std=c++17', '-Wno-unused-result', '-Wshadow','-Wall', '-D_GLIBCXX_DEBUG']
             \ }
 
-let g:neomake_python_enabled_makers=['pep8']
-let g:neomake_python_pep8_maker = {
-    \ 'exe' : 'python3'
-    \}
+"let g:neomake_python_enabled_makers=['pep8']
+"let g:neomake_python_pep8_maker = {
+    "\ 'exe' : 'python3'
+    "\}
 
 " neomake settings END ======================
 
@@ -203,6 +203,11 @@ func! Compile()
     "-D_GLIBCXX_DEBUG : flag raises visibility warnings - removed for now
     elseif &filetype == 'c'
         exec "!gcc -o %< %"
+    elseif &filetype == 'TEX'
+        exec "!pdflatex %< %"
+        exec "!bibtex %< %"
+        exec "!pdflatex %< %"
+        exec "!pdflatex %< %"
     endif
 endfunc
 "==========compile and run end======================
