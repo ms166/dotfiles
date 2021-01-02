@@ -182,6 +182,11 @@ nnoremap <space> :noh<CR>
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap [<CR> [<CR>]<Esc>ko
 
+" map <leader>e to copy current pwd to system clipboard
+nnoremap <leader>e :let @* = system('pwd')<cr>
+
+
+
 " ========================MAPPINGS END================================
 
 
