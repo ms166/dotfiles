@@ -1,6 +1,11 @@
 " stop cursor from changing in neovim
 set guicursor=n-i-v-c:block-Cursor
 set guicursor+=n-i-v-c:blinkon0
+set guicursor+=i:ver100-iCursor
+
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 "================== PLUGINS SECTION BEGIN======================
 " https://github.com/junegunn/vim-plug/wiki/tutorial
@@ -209,10 +214,10 @@ func! Compile()
     elseif &filetype == 'c'
         exec "!gcc -o %< %"
     elseif &filetype == 'TEX'
-        exec "!pdflatex %< %"
-        exec "!bibtex %< %"
-        exec "!pdflatex %< %"
-        exec "!pdflatex %< %"
+        exec "!pdflatex main"
+        exec "!bibtex main"
+        exec "!pdflatex main"
+        exec "!pdflatex main"
     endif
 endfunc
 "==========compile and run end======================
