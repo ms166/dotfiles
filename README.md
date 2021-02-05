@@ -17,5 +17,8 @@
     * Install tmux plugins using `prefix + I` where prefix is `ctrl + a`.
 
 ## Remap capslock to ctrl
-* Run the script `cat change_caps_to_ctrl_manjaro.sh` on login.
+* Run the script `change_caps_to_ctrl_manjaro.sh` on login.
     * Most OS's will have a way to execute custom scripts on startup --- for xfce see the [arch wiki](https://wiki.archlinux.org/index.php/xfce#Autostart).
+
+## .bashrc
+* Add the contents of `.bashrc` to the default `~/.bashrc`.
