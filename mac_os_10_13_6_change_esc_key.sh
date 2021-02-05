@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #esc key code: 0x700000000 || 0x29 = 0x700000029
 #esc key code: 0x700000000 || 0x64 = 0x700000064
