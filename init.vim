@@ -47,7 +47,8 @@ endif
 "for gruvbox
 "let g:gruvbox_contrast_dark='light'
 
-colorscheme edge
+colorscheme gruvbox
+
 
 "==============COLOURSCHEME END================
 
@@ -178,7 +179,7 @@ map <leader>t <plug>NERDCommenterToggle
 "noremap <leader>ca <Nop>
 
 " copy whole file
-nnoremap <leader>ca gg<S-V><S-G>"*y<Esc>
+nnoremap <leader>ca gg<S-V><S-G>"+y<Esc>
 
 " remove highlights
 nnoremap <space> :noh<CR>
@@ -188,7 +189,7 @@ inoremap {<CR> {<CR>}<Esc>ko
 inoremap [<CR> [<CR>]<Esc>ko
 
 " map <leader>e to copy current pwd to system clipboard
-nnoremap <leader>e :let @* = system('pwd')<cr>
+nnoremap <leader>e :let @+ = system('pwd')<cr>
 
 
 
@@ -209,8 +210,7 @@ func! Compile()
     if &filetype == 'java'
         exec "!javac %"
     elseif &filetype == 'cpp'
-        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG"
-    "-D_GLIBCXX_DEBUG : flag raises visibility warnings - removed for now
+        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
         exec "!gcc -o %< %"
     elseif &filetype == 'TEX'

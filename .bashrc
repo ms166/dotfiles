@@ -90,7 +90,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
@@ -144,6 +143,8 @@ ex ()
 # set vi mode for bash
 set -o vi
 
-
 # start tmux with 256 colours
 alias tmux="tmux -2"
+
+# add my own binary folder to path
+export PATH=$PATH:/home/mehran/bin

@@ -22,3 +22,12 @@
 
 ## .bashrc
 * Add the contents of `.bashrc` to the default `~/.bashrc`.
+
+## Environment variables
+* Add the following in `/etc/environment`:
+    * `EDITOR=nvim`
+    * `PAGER=most`
+        * Make sure `most` is installed.
+        * Add `setkey "up" "k"` and `setkey "down" "j"` to `~/.mostrc`
+* Run : `source /etc/environment`
+
