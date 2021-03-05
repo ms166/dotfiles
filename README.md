@@ -31,4 +31,4 @@
 ## Applications using GTK-Themes
 * If you've set a particular theme for the system, for example, a dark one, then other applications may use the system's theme even when you don't want it to. This happens with firefox. To fix it, you have to modify application specific config files and explicitly mention not to use the system's theme.
 * For firefox, edit the file `/usr/share/applications/firefox.desktop`:
-    * Change the line that begins with `Exec=/usr/lib/firefox/firefox %u` to `Exec=bash -c 'GTK_THEME=" " /usr/lib/firefox/firefox %u'`.
+    * Change the line `Exec=/usr/lib/firefox/firefox %u` to `Exec=bash -c 'GTK_THEME=" " /usr/lib/firefox/firefox %u'`.
