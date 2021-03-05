@@ -3,3 +3,4 @@
 cp ~/.bashrc .bashrc
 cp ~/.tmux/.tmux.conf .tmux.conf
 cp ~/.config/nvim/init.vim init.vim
+cp /etc/environment environment

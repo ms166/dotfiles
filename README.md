@@ -24,10 +24,6 @@
 * Add the contents of `.bashrc` to the default `~/.bashrc`.
 
 ## Environment variables
-* Add the following in `/etc/environment`:
-    * `EDITOR=nvim`
-    * `PAGER=most`
-        * Make sure `most` is installed.
-        * Add `setkey "up" "k"` and `setkey "down" "j"` to `~/.mostrc`
+* Copy the `environment` file to `/etc/environment`.
 * Run : `source /etc/environment`
-
+    * You might have to add this line to `.bash_profile`, if the environment variables do not automatically update during login.
