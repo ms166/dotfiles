@@ -27,3 +27,8 @@
 * Copy the `environment` file to `/etc/environment`.
 * Run : `source /etc/environment`
     * You might have to add this line to `.bash_profile`, if the environment variables do not automatically update during login.
+
+## Applications using GTK-Themes
+* If you've set a particular theme for the OS, for example, a dark one, then other applications may use the system's theme even when you don't want it. This happens with firefox. To fix it, you have to modify application specific config files and explicitly mention not to use the system's theme.
+* For firefox, edit the file `/usr/share/applications/firefox.desktop`:
+    * Change the line that begins with `Exec=/usr/lib/firefox/firefox %u` to `Exec=bash -c 'GTK_THEME=" " /usr/lib/firefox/firefox %u'`.
