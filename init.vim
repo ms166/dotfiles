@@ -210,7 +210,8 @@ func! Compile()
     if &filetype == 'java'
         exec "!javac %"
     elseif &filetype == 'cpp'
-        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
+        "-std=c++17 also works below
+        exec "!g++ -std=c++14 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
         exec "!gcc -o %< %"
     elseif &filetype == 'TEX'
