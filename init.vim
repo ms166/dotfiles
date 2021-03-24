@@ -211,14 +211,16 @@ func! Compile()
         exec "!javac %"
     elseif &filetype == 'cpp'
         "-std=c++17 also works below
-        exec "!g++ -std=c++14 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
+        exec "w"
+        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
         exec "!gcc -o %< %"
     elseif &filetype == 'TEX'
-        exec "!pdflatex main"
-        exec "!bibtex main"
-        exec "!pdflatex main"
-        exec "!pdflatex main"
+        let file_name = expand('%:t:r')
+        exec "!pdflatex ". file_name
+        exec "!bibtex ". file_name
+        exec "!pdflatex ". file_name
+        exec "!pdflatex ". file_name
     endif
 endfunc
 "==========compile and run end======================

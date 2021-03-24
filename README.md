@@ -29,6 +29,9 @@
     * You might have to add this line to `.bash_profile`, if the environment variables do not automatically update during login.
 
 ## Applications using GTK-Themes
-* If you've set a particular theme for the system, for example, a dark one, then other applications may use the system's theme even when you don't want it to. This happens with firefox. To fix it, you have to modify application specific config files and explicitly mention not to use the system's theme.
+* If you've set a particular theme for the system, for example, a dark one, then other applications may use the system's theme even when you don't want it to. To fix it, you have to modify application specific config files and explicitly mention not to use the system's theme.
 * For firefox, edit the file `/usr/share/applications/firefox.desktop`:
     * Change the line `Exec=/usr/lib/firefox/firefox %u` to `Exec=bash -c 'GTK_THEME=" " /usr/lib/firefox/firefox %u'`.
+* For `libreoffice-TYPE`, where `TYPE` can be `base`, `calc`, etc., edit the file `/usr/share/applications/libreoffice-calc.desktop`
+    * Change the first line containing the word `Exec`, with:
+        * `Exec=bash -c 'GTK_THEME=Adwaita:light libreoffice --calc %U'`

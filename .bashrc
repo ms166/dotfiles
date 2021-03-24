@@ -153,3 +153,6 @@ export PATH=$PATH:/home/mehran/bin
 export PATH=/opt/texlive/2021/bin/x86_64-linux:$PATH
 export MANPATH=/opt/texlive/2021/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/opt/texlive/2021/texmf-dist/doc/info:$INFOPATH
+
+# when quitting ranger, cd to the last directory visited, instead of the one from which ranger was started
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
