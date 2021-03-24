@@ -35,3 +35,7 @@
 * For `libreoffice-TYPE`, where `TYPE` can be `base`, `calc`, etc., edit the file `/usr/share/applications/libreoffice-calc.desktop`
     * Change the first line containing the word `Exec`, with:
         * `Exec=bash -c 'GTK_THEME=Adwaita:light libreoffice --calc %U'`
+
+## ssh-add
+* To run `ssh-add`, you need to initialise the SSH-agent using:
+    * `eval "$(ssh-agent)"`
