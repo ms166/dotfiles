@@ -39,3 +39,5 @@
 ## ssh-add
 * To run `ssh-add`, you need to initialise the SSH-agent using:
     * `eval "$(ssh-agent)"`
+## fn-key state
+* pressing fn + esc will switch fn-key state
