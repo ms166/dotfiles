@@ -191,7 +191,8 @@ inoremap [<CR> [<CR>]<Esc>ko
 " map <leader>e to copy current pwd to system clipboard
 nnoremap <leader>e :let @+ = system('pwd')<cr>
 
-
+" map <C-l> to '\n'
+inoremap <C-l> '\n'
 
 " ========================MAPPINGS END================================
 
@@ -208,15 +209,18 @@ autocmd VimEnter * execute "normal! \i"
 map <F5> :call Compile()<CR><CR>
 func! Compile()
     if &filetype == 'java'
-        exec "!javac %"
+        exec "w"
+        exec "!javac -d . %"
     elseif &filetype == 'cpp'
         "-std=c++17 also works below
         exec "w"
         exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
+        exec "w"
         exec "!gcc -o %< %"
     elseif &filetype == 'TEX'
         let file_name = expand('%:t:r')
+        exec "w"
         exec "!pdflatex ". file_name
         exec "!bibtex ". file_name
         exec "!pdflatex ". file_name
