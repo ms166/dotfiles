@@ -4,7 +4,7 @@
     * Place this in `~/.config/nvim/`.
 * Install the plugin manager `plugged`.
     * Follow the instructions on their github. Using the given command for neovim generally works well.
-    * The `plug.vim` file is to be placed in `~/.local/share/nvim/site/autoload`.
+    * The `plug.vim` file is to be placed in `~/.local/share/nvim/site/autoload/`.
         * Create the folders above if they do not exist.
 * Install plugins by running `:PlugInstall` in vim.
 
