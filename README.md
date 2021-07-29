@@ -2,8 +2,7 @@
 * Download and install neovim using a package manager or from source.
 * `init.vim` is the `.vimrc` equivalent file.
     * Place this in `~/.config/nvim/`.
-* Install the plugin manager `plugged`.
-    * Follow the instructions on their github. Using the given command for neovim generally works well.
+* Install the plugin manager [plugged](https://github.com/junegunn/vim-plug).
     * The `plug.vim` file is to be placed in `~/.local/share/nvim/site/autoload/`.
         * Create the folders above if they do not exist.
 * Install plugins by running `:PlugInstall` in vim.
