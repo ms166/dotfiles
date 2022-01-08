@@ -15,7 +15,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/preservim/nerdcommenter'
-Plug 'https://github.com/neomake/neomake'
+
+"remove because I am now using CoC
+"Plug 'https://github.com/neomake/neomake'
 
 " themes / colour schemes
 Plug 'https://github.com/AlessandroYorba/Alduin'
@@ -32,6 +34,10 @@ Plug 'https://github.com/franbach/miramare'
 Plug 'https://github.com/sainnhe/forest-night'
 Plug 'https://github.com/arcticicestudio/nord-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'Pocco81/AutoSave.nvim'
+
+" autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -54,13 +60,13 @@ colorscheme gruvbox
 
 
 " neomake settings BEGIN ======================
-call neomake#configure#automake('w')
+"call neomake#configure#automake('w')
 
-let g:neomake_cpp_enabled_makers=['gpp']
-let g:neomake_cpp_gpp_maker = {
-            \ 'exe' : 'g++',
-            \ 'args' : ['-O2', '-std=c++17', '-Wno-unused-result', '-Wshadow','-Wall', '-D_GLIBCXX_DEBUG']
-            \ }
+"let g:neomake_cpp_enabled_makers=['gpp']
+"let g:neomake_cpp_gpp_maker = {
+            "\ 'exe' : 'g++',
+            "\ 'args' : ['-O2', '-std=c++17', '-Wno-unused-result', '-Wshadow','-Wall', '-D_GLIBCXX_DEBUG']
+            "\ }
 
 "let g:neomake_python_enabled_makers=['pep8']
 "let g:neomake_python_pep8_maker = {
@@ -206,7 +212,7 @@ autocmd VimEnter * execute "normal! \i"
 
 
 "==========compile and run======================
-map <F5> :call Compile()<CR><CR>
+map <F5> :call Compile()<CR>
 func! Compile()
     if &filetype == 'java'
         exec "w"
@@ -214,7 +220,8 @@ func! Compile()
     elseif &filetype == 'cpp'
         "-std=c++17 also works below
         exec "w"
-        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
+        "removed this flag to compile with memory leaks -fsanitize=address
+        exec "!g++ -std=c++17 -Wshadow -Wall -o %< %  -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
         exec "w"
         exec "!gcc -o %< %"
@@ -251,3 +258,44 @@ nnoremap ;t i\hspace*{1em}<Esc>
 
 " map key to compile latex using custom script
 nnoremap ;g : !compileTex<cr><cr>
+
+" ================ settings for coc BEGIN ============================
+
+" BEGIN === use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+" END === use <tab> for trigger completion and navigate to the next complete item
+" ================ settings for coc END ============================
+
+
+"Settings for autosave BEGIN ====================
+"lua << EOF
+"local autosave = require("autosave")
+
+"autosave.setup(
+    "{
+        "enabled = true,
+        "execution_message = "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"),
+        "events = {"InsertLeave", "TextChanged"},
+        "conditions = {
+            "exists = true,
+            "filename_is_not = {},
+            "filetype_is_not = {},
+            "modifiable = true
+        "},
+        "write_all_buffers = false,
+        "on_off_commands = true,
+        "clean_command_line_interval = 0,
+        "debounce_delay = 135
+    "}
+")
+"EOF
+"Settings for autosave BEGIN ====================
