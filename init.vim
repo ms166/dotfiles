@@ -15,7 +15,9 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/preservim/nerdcommenter'
-Plug 'https://github.com/neomake/neomake'
+
+"remove because I am now using CoC
+"Plug 'https://github.com/neomake/neomake'
 
 " themes / colour schemes
 Plug 'https://github.com/AlessandroYorba/Alduin'
@@ -32,6 +34,10 @@ Plug 'https://github.com/franbach/miramare'
 Plug 'https://github.com/sainnhe/forest-night'
 Plug 'https://github.com/arcticicestudio/nord-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
+Plug 'Pocco81/AutoSave.nvim'
+
+" autocompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -56,13 +62,13 @@ colorscheme gruvbox
 
 
 " neomake settings BEGIN ======================
-call neomake#configure#automake('w')
+"call neomake#configure#automake('w')
 
-let g:neomake_cpp_enabled_makers=['gpp']
-let g:neomake_cpp_gpp_maker = {
-            \ 'exe' : 'g++',
-            \ 'args' : ['-O2', '-std=c++17', '-Wno-unused-result', '-Wshadow','-Wall', '-D_GLIBCXX_DEBUG']
-            \ }
+"let g:neomake_cpp_enabled_makers=['gpp']
+"let g:neomake_cpp_gpp_maker = {
+            "\ 'exe' : 'g++',
+            "\ 'args' : ['-O2', '-std=c++17', '-Wno-unused-result', '-Wshadow','-Wall', '-D_GLIBCXX_DEBUG']
+            "\ }
 
 "let g:neomake_python_enabled_makers=['pep8']
 "let g:neomake_python_pep8_maker = {
