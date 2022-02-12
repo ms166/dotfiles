@@ -33,6 +33,8 @@ Plug 'https://github.com/sainnhe/forest-night'
 Plug 'https://github.com/arcticicestudio/nord-vim'
 Plug 'https://github.com/cocopon/iceberg.vim'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 "================== PLUGINS SECTION END======================
@@ -206,7 +208,7 @@ autocmd VimEnter * execute "normal! \i"
 
 
 "==========compile and run======================
-map <F5> :call Compile()<CR><CR>
+map <F5> :call Compile()<CR>
 func! Compile()
     if &filetype == 'java'
         exec "w"
@@ -214,7 +216,7 @@ func! Compile()
     elseif &filetype == 'cpp'
         "-std=c++17 also works below
         exec "w"
-        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
+        exec "!clang++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
         exec "w"
         exec "!gcc -o %< %"
@@ -251,3 +253,10 @@ nnoremap ;t i\hspace*{1em}<Esc>
 
 " map key to compile latex using custom script
 nnoremap ;g : !compileTex<cr><cr>
+
+" We dont need a python2 provider
+let g:loaded_python_provider = 0
+
+" Use tab and shift-tab to cycle through autocomplete suggestions
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
