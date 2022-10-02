@@ -222,7 +222,7 @@ func! Compile()
     elseif &filetype == 'cpp'
         "-std=c++17 also works below
         exec "w"
-        exec "!clang++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
+        exec "!g++ -std=c++17 -Wshadow -Wall -o %< % -fsanitize=address -fsanitize=undefined -g -D_GLIBCXX_DEBUG -g"
     elseif &filetype == 'c'
         exec "w"
         exec "!gcc -o %< %"
