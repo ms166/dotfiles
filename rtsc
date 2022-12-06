@@ -1,0 +1,12 @@
+if [ "$#" -ne 1 ]; then
+    echo "Provide exactly 1 parameter"
+    exit
+fi
+
+filename=$(basename -- "$1")
+extension="${filename##*.}"
+filename="${filename%.*}"
+
+tsc --target ES5 $1 &&
+node $filename.js
+
