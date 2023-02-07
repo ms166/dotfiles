@@ -146,3 +146,8 @@ alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir
 # add .dotnet/tools to path
 export PATH="${PATH}:/home/mehran/.dotnet/tools/"
 
+# add Intellij IDE bin path to PATH
+export PATH="${PATH}:/opt/idea-IC-222.4167.29/bin"
+
+# add go binary path to PATH
+export PATH=$PATH:/usr/local/go/bin
