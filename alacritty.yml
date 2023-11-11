@@ -1,4 +1,9 @@
 # See this to fix thick/bold fonts - https://github.com/alacritty/alacritty/issues/4616#issuecomment-1236413444
+# To copy from SSH:
+#   - Hold down Shift
+#   - Use cursor to select some text
+#   - Let go of Shift
+#   - Copy with CMD+C
 
 import:
   - ~/.config/alacritty/themes/themes/Cobalt2.yaml
