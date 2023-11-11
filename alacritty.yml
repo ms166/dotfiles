@@ -1,3 +1,5 @@
+# See this to fix thick/bold fonts - https://github.com/alacritty/alacritty/issues/4616#issuecomment-1236413444
+
 import:
   - ~/.config/alacritty/themes/themes/Cobalt2.yaml
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
